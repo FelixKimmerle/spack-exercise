@@ -7,6 +7,8 @@ option(WITH_YAML "Build with YAML parser functionality" OFF)
 # ---------------------------------------------------------------------------
 # Collect sources and headers conditionally
 # ---------------------------------------------------------------------------
+set(SRCS "")
+if(WITH_BOOST)
 set(SRCS
   flatset/flatset.cpp
 )
@@ -14,8 +16,6 @@ set(SRCS
 set(PUBLIC_HEADERS
   flatset/flatset.hpp
 )
-
-if(WITH_BOOST)
   find_package(Boost 1.65.1 REQUIRED filesystem)
   list(APPEND SRCS filesystem/filesystem.cpp)
   list(APPEND PUBLIC_HEADERS filesystem/filesystem.hpp)
