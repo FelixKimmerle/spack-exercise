@@ -35,7 +35,7 @@ class SpackExercise(CMakePackage):
 
     license("MIT", checked_by="FelixKimmerle")
 
-    version("0.3.1", sha256="49d4eda8d79b9868f95463fb1527c6829f92157bbe27c08ebca1b2e8b0ef67a4")
+    version("0.3.2", sha256="00d30369539a123eac09350b55f8f1283ae0379a25105646df86ec3fc54f3a5b")
 
     depends_on("cxx", type="build")
     depends_on("c", type="build")
@@ -45,7 +45,11 @@ class SpackExercise(CMakePackage):
     depends_on("yaml-cpp@0.7.0:", when="+yamlcpp @0.3.0:")
 
     def cmake_args(self):
-        args = []
-        args.append(self.define("WITH_BOOST", "+boost" in self.spec))
-        args.append(self.define("WITH_YAML", "+yamlcpp" in self.spec))
+        #args = []
+        #args.append(self.define("WITH_BOOST", "boost" in self.spec))
+        #args.append(self.define("WITH_YAML", "yamlcpp" in self.spec))
+        args = [
+            self.define_from_variant("WITH_BOOST", "boost"),
+            self.define_from_variant("WITH_YAML", "yamlcpp")
+        ] 
         return args
