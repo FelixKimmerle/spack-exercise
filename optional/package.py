@@ -45,11 +45,7 @@ class SpackExercise(CMakePackage):
     depends_on("yaml-cpp@0.7.0:", when="+yamlcpp @0.3.0:")
 
     def cmake_args(self):
-        #args = []
-        #args.append(self.define("WITH_BOOST", "boost" in self.spec))
-        #args.append(self.define("WITH_YAML", "yamlcpp" in self.spec))
-        args = [
-            self.define_from_variant("WITH_BOOST", "boost"),
-            self.define_from_variant("WITH_YAML", "yamlcpp")
-        ] 
-        return args
+        return [
+            self.define("WITH_BOOST", "ON" if self.spec.satisfies("+boost") else "OFF"),
+            self.define("WITH_YAML", "ON" if self.spec.satisfies("+yamlcpp") else "OFF"),
+        ]
