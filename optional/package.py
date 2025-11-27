@@ -35,7 +35,7 @@ class SpackExercise(CMakePackage):
 
     license("MIT", checked_by="FelixKimmerle")
 
-    version("0.3.2", sha256="00d30369539a123eac09350b55f8f1283ae0379a25105646df86ec3fc54f3a5b")
+    version("0.3.4", sha256="20dc8e0c74c5e2f294661ec4affff8d14fba64d236d3f39375c7190c9f6b32a5")
 
     depends_on("cxx", type="build")
     depends_on("c", type="build")
