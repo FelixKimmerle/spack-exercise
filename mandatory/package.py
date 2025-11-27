@@ -25,7 +25,7 @@ from spack.package import *
 
 
 class SpackExercise(CMakePackage):
-    """SSE WS 2025/26 spack exercise by FelixKimmerle"""
+    """spack exercise by FelixKimmerle"""
 
     homepage = "https://simulation-software-engineering.github.io/homepage/"
     url = "https://github.com/Simulation-Software-Engineering/spack-exercise/archive/refs/tags/v0.3.0.tar.gz"
@@ -50,5 +50,4 @@ class SpackExercise(CMakePackage):
         args = []
         args.append(self.define("WITH_BOOST", "+boost" in self.spec))
         args.append(self.define("WITH_YAML", "+yamlcpp" in self.spec))
-        return args    
-
+        return args
